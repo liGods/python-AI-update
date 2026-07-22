@@ -37,7 +37,7 @@ def validate_action(action, hand_cards):  # 校验训练模型动作是否能够
 
 
 class TrainedModelAdapter:  # 封装用户训练模型的加载、推理和输出校验。
-    def __init__(self, adapter_path, weights_path):  # 保存模型适配脚本与权重路径。
+    def __init__(self, adapter_path, weights_path=None):  # 无外部权重的规则适配器可只提供脚本路径。
         self.adapter_path = Path(adapter_path).expanduser().resolve()  # 解析模型适配脚本的绝对路径。
         self.weights_path = Path(weights_path).expanduser().resolve() if weights_path else None  # 在配置非空时解析权重绝对路径。
         self.module = None  # 初始化尚未加载的适配模块。
